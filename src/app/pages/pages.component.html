@@ -1,3 +1,37 @@
 <p>Navigation</p>
 
-<router-outlet></router-outlet>
+<!-- hasBackdrop = 'true','false' (Explicitly setting hasBackdrop to true or false will override the default backdrop visibility setting for all sidenavs regadless of mode)-->
+<mat-sidenav-container class="example-container">
+    
+    <!-- mode ="push","side","over";  position = "start","end"; #sidenav-id for toggle button-->
+    <mat-sidenav #sidenav mode="over" position="start" toggle>
+        <mat-nav-list>
+            <div fxLayoutAlign="end">
+                <button mat-icon-button (click)="sidenav.close()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <mat-list-item *ngFor="let item of NavItems">
+                <a>{{item}}</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row fxLayoutAlign="space-between center">
+                <span fxHide="false" fxHide.gt-sm>
+                    <button mat-button (click)="sidenav.toggle()" class="sidenav-toggle">
+                        <mat-icon>menu</mat-icon>
+                    </button> 
+                </span>
+                <span fxShow="false" fxShow.gt-xs fxLayoutAlign="center center"> Multivendor Marketplace </span>                
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
