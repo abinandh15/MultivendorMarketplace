@@ -42,6 +42,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FlexLayoutModule, 
   ],
   exports: [
+    FlexLayoutModule, 
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
