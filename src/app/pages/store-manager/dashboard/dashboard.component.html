@@ -1,1 +1,87 @@
-<p>dashboard works!</p>
+
+<div>
+<section fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <mat-card fxFlex="20">Number of orders</mat-card>
+    <mat-card fxFlex="20">Number of products</mat-card>
+    <mat-card fxFlex="20">Total revenew</mat-card>
+    <mat-card fxFlex="20">Out of stocks</mat-card>
+</section>
+<section class="mt-2">
+   <mat-card>
+        <mat-toolbar class="mat-elevation-z1" fxLayoutAlign="space-between center" color="accent">     
+                        <mat-form-field>
+                            <mat-label>Filter</mat-label>
+                            <mat-select (selectionChange)="updateGraph($event)" [(value)]="selected">
+                                <mat-option value="Today">Today</mat-option>
+                                <mat-option value="ThisMonth">This Month</mat-option>
+                                <mat-option value="LastMonth">Last Month</mat-option>
+                                <mat-option value="ThisYear">This Year</mat-option>
+                                <mat-option value="LastYear">Last Year</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                
+        </mat-toolbar>     
+        <canvas baseChart width="400" height="100"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+        </canvas>
+    </mat-card>
+   
+</section>
+<section class="mt-2" fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <mat-card fxFlex="50">
+        <canvas baseChart 
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+        </canvas>
+    </mat-card>
+    <mat-card fxFlex>
+        <mat-card-title>Best Sellers</mat-card-title>
+        <mat-list >
+            <mat-list-item>
+                <mat-icon matListIcon>shopping-cart</mat-icon>
+                <h3 matLine>Product 1</h3>
+                <p matLine>
+                    <span>Rating</span>
+                    <span>*****</span>
+                </p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListIcon>shopping-cart</mat-icon>
+                <h3 matLine>Product 1</h3>
+                <p matLine>
+                    <span>Rating</span>
+                    <span>*****</span>
+                </p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListIcon>shopping-cart</mat-icon>
+                <h3 matLine>Product 1</h3>
+                <p matLine>
+                    <span>Rating</span>
+                    <span>*****</span>
+                </p>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListIcon>shopping-cart</mat-icon>
+                <h3 matLine>Product 1</h3>
+                <p matLine>
+                    <span>Rating</span>
+                    <span>*****</span>
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+     
+</section>
+</div>
