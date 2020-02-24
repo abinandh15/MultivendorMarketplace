@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-//Angular Material Components
+// Angular Material Components
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -32,6 +32,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -40,6 +41,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   imports: [
     CommonModule,
     FlexLayoutModule, 
+    ChartsModule
   ],
   exports: [
     FlexLayoutModule, 
@@ -73,6 +75,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule]
+    MatPaginatorModule,
+    ChartsModule]
 })
 export class SharedModule { }

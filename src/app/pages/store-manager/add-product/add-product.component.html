@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Add Product</mat-card-title>
+        <mat-card-subtitle>make sure to fill all the important fields *</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>        
+            <form fxLayout="row wrap">
+                <div fxFlex="30">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput placeholder="Product Name" required>
+                    </mat-form-field>
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input matInput placeholder="Price" required>
+                    </mat-form-field>
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Add a detailed description about your product"></textarea>
+                    </mat-form-field>                    
+                    
+                </div>
+                <div fxFlex>
+                    <img width="400px" src="https://designshack.net/wp-content/uploads/placeholder-image.png">
+                </div>
+            </form>       
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button>Create</button>
+        <button mat-raised-button color="warn">Cancel</button>
+    </mat-card-actions>
+</mat-card>
+

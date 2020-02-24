@@ -1,1 +1,37 @@
-<p>products works!</p>
+    
+    <mat-toolbar class="mat-elevation-z1" fxLayoutAlign="space-between center" color="accent">
+        <span>Products</span>
+        <button mat-raised-button color="warn" routerLink="/store-manager/add-product">New Product</button>
+    </mat-toolbar>
+    
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="mat-elevation-z1">
+        <table  fxFill mat-table [dataSource]="productList" matSort>
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+                <td mat-cell *matCellDef="let list">{{list.position}}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let list">{{list.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef>Image</th>
+                <td mat-cell *matCellDef="let list"><img [src]="list.image" width="100px"></td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+                <td mat-cell *matCellDef="let list">{{list.price}}</td>
+            </ng-container>
+            <ng-container matColumnDef="stock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+                <td mat-cell *matCellDef="let list">{{list.stock}}</td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedCols"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedCols;"></tr>        
+        </table>    
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+   
+
