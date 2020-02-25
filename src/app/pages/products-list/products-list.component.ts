@@ -20,5 +20,5 @@ export class ProductsListComponent implements OnInit {
       { name: 'Product3', image: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-2_large.png?format=jpg&quality=90&v=1530129318', price: 15 },
     ]
   }
-
+ 
 }
