@@ -2,7 +2,7 @@
 <mat-sidenav-container fxFill hasBackdrop="false">
     <mat-sidenav role="store-manager-sidebar" mode="side" opened>
         <mat-nav-list>
-            <mat-list-item *ngFor="let item of NavItems">
+            <mat-list-item *ngFor="let item of NavItems" routerLinkActive="active mat-elevation-z1 blue">
                 <a matLine [routerLink]="item.link" >
                     {{item.name}}
                 </a>
