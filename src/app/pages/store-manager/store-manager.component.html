@@ -1,15 +1,20 @@
 
-<mat-sidenav-container fxFill hasBackdrop="false">
-    <mat-sidenav role="store-manager-sidebar" mode="side" opened>
+<mat-sidenav-container fxFill >
+    <mat-sidenav role="store-manager-sidebar" #storeManagerSidenav [mode]="media.isActive('gt-md') ? 'side': 'over'" toggle [opened]="media.isActive('gt-md')">
         <mat-nav-list>
-            <mat-list-item *ngFor="let item of NavItems" routerLinkActive="active mat-elevation-z1 blue">
+            <mat-list-item *ngFor="let item of NavItems" routerLinkActive="active mat-elevation-z1">
                 <a matLine [routerLink]="item.link" >
                     {{item.name}}
                 </a>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>                     
-                <router-outlet fxLayout="column" fxLayoutGap="30px"></router-outlet>      
+    <mat-sidenav-content fxLayout="column" fxLayoutGap="10px"> 
+                <mat-toolbar fxHide.gt-md>
+                    <button mat-icon-button (click)="storeManagerSidenav.toggle()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </mat-toolbar>                    
+                <router-outlet ></router-outlet>      
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,18 +1,63 @@
-<mat-card class="productsContainer">
-    <div fxLayout="row wrap"  fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-around center">
-        <mat-card fxFlex=30 fxFlex.xs=0 *ngFor="let product of products" class="productCard mat-elevation-z2">
-            <img mat-card-image [src]="product.image"  alt="Product Image">
-            <mat-card-content fxLayoutAlign="space-around center"> <h1> {{product.name}} </h1> </mat-card-content>
-            
-            <mat-card-action fxLayoutAlign="space-around center">
-                <button mat-icon-button>
-                    <mat-icon>add_shopping_cart</mat-icon>
-                </button>
-                <button mat-icon-button>
-                    <mat-icon>favorite</mat-icon>
-                </button>
-            </mat-card-action>
-            <mat-card-footer><p> {{product.price}} </p></mat-card-footer>
+<mat-sidenav-container fxFill >
+
+    <mat-sidenav #filterSidenav mode="side" toggle [opened]="media.isActive('gt-md')"> 
+               
+        <mat-card fxFlex="auto" fxLayout="column" fxLayoutGap="10px">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Categories
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item>Hats</mat-list-item>
+                    <mat-list-item>Bags</mat-list-item>
+                    <mat-list-item>PhotoFrames</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Brand
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item>Hats</mat-list-item>
+                    <mat-list-item>Bags</mat-list-item>
+                    <mat-list-item>PhotoFrames</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
         </mat-card>
-    </div>
-</mat-card>
+    </mat-sidenav>
+    <mat-sidenav-content>
+    <mat-toolbar color="accent">
+        <button mat-icon-button fxHide.gt-md>
+            <mat-icon (click)="filterSidenav.toggle()">menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-card class="productsContainer">
+        <div  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-around center" >
+            <mat-card fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" *ngFor="let product of products" class="productCard mat-elevation-z2">
+                <mat-chip-list>
+                    <mat-chip color="accent" selected>{{product.price}}</mat-chip>
+                </mat-chip-list>
+                <img mat-card-image [src]="product.image"  alt="Product Image">
+                <mat-card-content fxLayoutAlign="space-around center"> <h1> {{product.name}} </h1></mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-icon-button>
+                        <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                    
+                </div>
+              
+            </mat-card>
+        </div>
+    </mat-card>
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

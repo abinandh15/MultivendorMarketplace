@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-store-manager',
@@ -9,7 +10,7 @@ export class StoreManagerComponent implements OnInit {
 
   NavItems: { name: string, link: string }[];
 
-  constructor() { }
+  constructor(public media: MediaObserver) {}
 
   ngOnInit(): void {
     this.NavItems = [

@@ -7,18 +7,21 @@ import { PagesComponent } from './pages/pages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    
   ],
-  providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
