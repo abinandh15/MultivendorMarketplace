@@ -1,0 +1,18 @@
+<mat-card class="productsContainer">
+    <div fxLayout="row wrap"  fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-around center">
+        <mat-card fxFlex=30 fxFlex.xs=0 *ngFor="let product of products" class="productCard mat-elevation-z2">
+            <img mat-card-image [src]="product.image"  alt="Product Image">
+            <mat-card-content fxLayoutAlign="space-around center"> <h1> {{product.name}} </h1> </mat-card-content>
+            
+            <mat-card-action fxLayoutAlign="space-around center">
+                <button mat-icon-button>
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-card-action>
+            <mat-card-footer><p> {{product.price}} </p></mat-card-footer>
+        </mat-card>
+    </div>
+</mat-card>

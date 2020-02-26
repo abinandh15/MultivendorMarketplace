@@ -9,8 +9,8 @@
                     <mat-icon>close</mat-icon>
                 </button>
             </div>
-            <mat-list-item *ngFor="let item of NavItems">
-                <a>{{item}}</a>
+            <mat-list-item *ngFor="let item of NavItems" [routerLink]="item.link">
+                <a>{{item.name}}</a>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
@@ -23,7 +23,12 @@
                         <mat-icon>menu</mat-icon>
                     </button> 
                 </span>
-                <span fxShow="false" fxShow.gt-xs fxLayoutAlign="center center"> Multivendor Marketplace </span>                
+                <span fxShow="false" fxShow.gt-xs> Multivendor Marketplace </span>  
+                <span fxShow="false" fxShow.gt-xs>
+                    <button mat-button *ngFor="let item of NavItems" [routerLink]="item.link">
+                        {{item.name}}
+                    </button>
+                </span>              
             </mat-toolbar-row>
         </mat-toolbar>
 

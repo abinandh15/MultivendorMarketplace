@@ -33,11 +33,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ChartsModule } from 'ng2-charts';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NotFoundComponent],
   imports: [
     CommonModule,
     FlexLayoutModule, 
@@ -76,6 +77,7 @@ import { ChartsModule } from 'ng2-charts';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    ChartsModule]
+    ChartsModule,
+    NotFoundComponent]
 })
 export class SharedModule { }

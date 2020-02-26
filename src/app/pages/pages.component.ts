@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.sass']
 })
 export class PagesComponent implements OnInit {
-    NavItems:Array<string>;
+    NavItems: { name:string, link:string }[];
   constructor() { }
 
   ngOnInit(): void {
-    this.NavItems=['Dashboard','Products', 'Orders', 'Categories'];
+    this.NavItems=[
+                    { name:"Home", link:"/" },
+                    { name:"Products", link:"/products" },
+                    { name:"Dashboard", link:"/store-manager" },
+                    ];
   }
 
 }
