@@ -29,7 +29,7 @@
             </mat-expansion-panel>
         </mat-card>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="scrollBar">
     <mat-toolbar color="accent">
         <button mat-icon-button fxHide.gt-md>
             <mat-icon (click)="filterSidenav.toggle()">menu</mat-icon>
@@ -37,7 +37,7 @@
     </mat-toolbar>
     <mat-card class="productsContainer">
         <div  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-around center" >
-            <mat-card fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" *ngFor="let product of products" class="productCard mat-elevation-z2">
+            <mat-card fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [routerLink]="'/products/' + product.name +'/'+ product.price " *ngFor="let product of products" class="productCard mat-elevation-z2">
                 <mat-chip-list>
                     <mat-chip color="accent" selected>{{product.price}}</mat-chip>
                 </mat-chip-list>
@@ -51,8 +51,7 @@
                         <mat-icon>favorite</mat-icon>
                     </button>
                     
-                </div>
-              
+                </div>              
             </mat-card>
         </div>
     </mat-card>
