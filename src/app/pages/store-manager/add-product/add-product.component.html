@@ -3,31 +3,60 @@
         <mat-card-title>Add Product</mat-card-title>
         <mat-card-subtitle>make sure to fill all the important fields *</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>        
-            <form fxLayout="row wrap">
-                <div fxFlex="30">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Product Name</mat-label>
-                        <input matInput placeholder="Product Name" required>
-                    </mat-form-field>
-                    <mat-form-field  appearance="outline">
-                        <mat-label>Price</mat-label>
-                        <input matInput placeholder="Price" required>
-                    </mat-form-field>
-                    <mat-form-field  appearance="outline">
-                        <mat-label>Description</mat-label>
-                        <textarea matInput placeholder="Add a detailed description about your product"></textarea>
-                    </mat-form-field>                    
-                    
-                </div>
-                <div fxFlex>
-                    <img width="400px" src="https://designshack.net/wp-content/uploads/placeholder-image.png">
-                </div>
-            </form>       
+    <mat-card-content>
+        <form fxLayout="row wrap" fxLayoutGap="10px">
+            <div fxLayout="column" fxFlex>
+                <mat-form-field appearance="outline">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput placeholder="Product Name" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input matInput placeholder="Price" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sale Price</mat-label>
+                    <input matInput placeholder="Sale Price" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Stock</mat-label>
+                    <input matInput type="number" placeholder="Stock" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="Add a detailed description about your product"></textarea>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.lt-xs="column" fxLayout.lt-md="column" fxLayoutGap="10px"
+                fxLayoutAlign="start center">
+                <mat-card fxFlex>
+                    <img mat-card-image src="https://designshack.net/wp-content/uploads/placeholder-image.png" />
+                </mat-card>
+                <mat-card>
+                    <div fxFlex fxLayout="column" fxLayout.lt-xs="row" fxLayout.lt-md="row" fxLayoutGap="10px">
+                        <mat-card>
+                            <img width="50px"
+                                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-3_large.png?format=jpg&quality=90&v=1530129341" />
+                        </mat-card>
+                        <mat-card>
+                            <img width="50px"
+                                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-3_large.png?format=jpg&quality=90&v=1530129341" />
+                        </mat-card>
+                        <mat-card>
+                            <img width="50px"
+                                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-3_large.png?format=jpg&quality=90&v=1530129341" />
+                        </mat-card>
+                        <mat-card>
+                            <img width="50px"
+                                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-3_large.png?format=jpg&quality=90&v=1530129341" />
+                        </mat-card>
+                    </div>
+                </mat-card>
+            </div>
+        </form>
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button>Create</button>
         <button mat-raised-button color="warn">Cancel</button>
     </mat-card-actions>
 </mat-card>
-
