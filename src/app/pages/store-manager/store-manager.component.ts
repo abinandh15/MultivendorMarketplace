@@ -17,7 +17,7 @@ export class StoreManagerComponent implements OnInit {
       { "name": "Dashboard", 'link': '/store-manager' },
       { "name": "Products", 'link': '/store-manager/products' },
       { "name": "Categories", 'link': '/store-manager' },
-      { "name": "Orders", 'link': '/store-manager' }
+      { "name": "Orders", 'link': '/store-manager/orders' }
     ];
   }
 
