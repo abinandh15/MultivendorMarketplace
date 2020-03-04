@@ -1,10 +1,10 @@
 
 <div>
 <section fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px">
-    <mat-card fxFlex="20">Number of orders</mat-card>
-    <mat-card fxFlex="20">Number of products</mat-card>
-    <mat-card fxFlex="20">Total revenew</mat-card>
-    <mat-card fxFlex="20">Out of stocks</mat-card>
+    <mat-card fxFlex="20"><mat-card-title>96</mat-card-title><mat-card-subtitle>Number of orders</mat-card-subtitle></mat-card>
+    <mat-card fxFlex="20"><mat-card-title>653</mat-card-title><mat-card-subtitle>Number of products</mat-card-subtitle></mat-card>
+    <mat-card fxFlex="20"><mat-card-title>$5762</mat-card-title><mat-card-subtitle>Total revenew</mat-card-subtitle></mat-card>
+    <mat-card fxFlex="20"><mat-card-title>2</mat-card-title><mat-card-subtitle>Out of stocks</mat-card-subtitle></mat-card>
 </section>
 <section class="mt-2">
    <mat-card>
@@ -34,53 +34,45 @@
    
 </section>
 <section class="mt-2" fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px">
-    <mat-card fxFlex="50">
+    <mat-card fxFlex="60">
         <canvas baseChart 
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins">
-        </canvas>
+        [data]="pieChartData" 
+        [labels]="pieChartLabels" 
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
     </mat-card>
-    <mat-card fxFlex>
+    <mat-card fxFlex="auto">
         <mat-card-title>Best Sellers</mat-card-title>
-        <mat-list >
-            <mat-list-item>
-                <mat-icon matListIcon>shopping-cart</mat-icon>
-                <h3 matLine>Product 1</h3>
-                <p matLine>
-                    <span>Rating</span>
-                    <span>*****</span>
-                </p>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon matListIcon>shopping-cart</mat-icon>
-                <h3 matLine>Product 1</h3>
-                <p matLine>
-                    <span>Rating</span>
-                    <span>*****</span>
-                </p>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon matListIcon>shopping-cart</mat-icon>
-                <h3 matLine>Product 1</h3>
-                <p matLine>
-                    <span>Rating</span>
-                    <span>*****</span>
-                </p>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon matListIcon>shopping-cart</mat-icon>
-                <h3 matLine>Product 1</h3>
-                <p matLine>
-                    <span>Rating</span>
-                    <span>*****</span>
-                </p>
-            </mat-list-item>
-        </mat-list>
+        <table  fxFill mat-table [dataSource]="orders" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Order No.</th>
+                <td mat-cell *matCellDef="let list">{{list.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="customerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let list">{{list.customerName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="totalPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+                <td mat-cell *matCellDef="let list">{{list.totalPrice}}</td>
+            </ng-container>
+            <ng-container matColumnDef="orderStatus">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                <td mat-cell *matCellDef="let list">
+                    <mat-chip-list>
+                        <mat-chip [color]="list.orderStatus == 'dispatched' ?  'accent': list.orderStatus == 'completed' ? 'primary': 'success' " selected>{{list.orderStatus}}</mat-chip>
+                    </mat-chip-list>
+                    
+                </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="orderCols"></tr>
+            <tr mat-row *matRowDef="let row; columns: orderCols"></tr>        
+        </table>    
+        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
     </mat-card>
      
 </section>

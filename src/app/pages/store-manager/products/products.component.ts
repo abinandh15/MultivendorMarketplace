@@ -3,6 +3,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { ProductData } from '../../../app.model';
 import { MatSort } from '@angular/material/sort';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
   selector: 'app-products',
@@ -14,10 +17,12 @@ export class ProductsComponent implements OnInit {
   productDummy: ProductData[];
   productList: any;
   displayedCols: Array<string>;
+  allowMultiSelect = true;
+  selection = new SelectionModel<ProductData>(this.allowMultiSelect, []);
 
-  constructor() {
+  constructor(public dialog: MatDialog){
+
   }
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
@@ -37,11 +42,39 @@ export class ProductsComponent implements OnInit {
       { name: 'helasdfaslo', position: 13, price: 420, image: 'https://img.icons8.com/plasticine/2x/product.png', stock: 5 },
       { name: 'heldfasdflo', position: 14, price: 720, image: 'https://img.icons8.com/plasticine/2x/product.png', stock: 5 },
       { name: 'hfasdfello', position: 15, price: 70, image: 'https://img.icons8.com/plasticine/2x/product.png', stock: 5 },
-    ]
+    ];
     this.productList = new MatTableDataSource<ProductData>(this.productDummy);
-    this.displayedCols = ['position', 'name', 'image', 'price', 'stock'];
+    this.displayedCols = ['select', 'position', 'name', 'image', 'price', 'stock', 'edit'];
     this.productList.paginator = this.paginator;
     this.productList.sort = this.sort;
   }
 
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.productList.data.length;
+    return numSelected == numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.productList.data.forEach(row => this.selection.select(row));
+  }
+
+  deleteSelectedRow() {
+      console.log(this.selection.selected);
+  }
+
+  openDialog(row): void{
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(AddProductComponent,{
+        width: "600px", 
+        data: row.selected ? row.selected[0] : '',     
+      });
+      console.log(row.selected)
+    }, 500);
+   
+  }
 }

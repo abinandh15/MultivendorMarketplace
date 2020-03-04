@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,9 +21,10 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule
     
   ],
-  
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

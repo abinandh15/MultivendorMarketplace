@@ -2,7 +2,7 @@
 <mat-sidenav-container fxFill >
     <mat-sidenav role="store-manager-sidebar" #storeManagerSidenav [mode]="media.isActive('gt-md') ? 'side': 'over'" toggle [opened]="media.isActive('gt-md')">
         <mat-nav-list>
-            <mat-list-item *ngFor="let item of NavItems" routerLinkActive="active mat-elevation-z1">
+            <mat-list-item *ngFor="let item of NavItems" routerLinkActive="active">
                 <a matLine [routerLink]="item.link" >
                     {{item.name}}
                 </a>

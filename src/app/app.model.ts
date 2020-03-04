@@ -26,3 +26,11 @@ export class ProductData {
               public image: string,
               public stock: number) { }
 }
+
+export class OrderData {
+  constructor(public id: number,
+              public totalPrice: string,
+              public customerName: string,
+              public orderStatus: string,
+              ) { }
+}

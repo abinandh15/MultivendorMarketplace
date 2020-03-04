@@ -1,4 +1,5 @@
-<mat-card>
+<div mat-dialog-content>
+<mat-card >
     <mat-card-header>
         <mat-card-title>Add Product</mat-card-title>
         <mat-card-subtitle>make sure to fill all the important fields *</mat-card-subtitle>
@@ -8,19 +9,19 @@
             <div fxLayout="column" fxFlex>
                 <mat-form-field appearance="outline">
                     <mat-label>Product Name</mat-label>
-                    <input matInput placeholder="Product Name" required />
+                    <input matInput placeholder="Product Name" required [value]="data ? data.name : data" />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Price</mat-label>
-                    <input matInput placeholder="Price" required />
+                    <input matInput placeholder="Price" required [value]="data ? data.name : data" />
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Sale Price</mat-label>
-                    <input matInput placeholder="Sale Price" required />
+                    <input matInput placeholder="Sale Price" required [value]="data ? data.price : data"/>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Stock</mat-label>
-                    <input matInput type="number" placeholder="Stock" required />
+                    <input matInput type="number" placeholder="Stock" required [value]="data ? data.stock : data"/>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Description</mat-label>
@@ -60,3 +61,5 @@
         <button mat-raised-button color="warn">Cancel</button>
     </mat-card-actions>
 </mat-card>
+
+</div>
